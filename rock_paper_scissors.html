@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="3
+    crossorigin="anonymous"></script>
+  <title>Turn on/off cell</title>
+  <style>
+  div {
+    padding: 10px;
+  }
+  table {
+    border-collapse: collapse
+  }
+  table, td, th {
+    border: 1px solid black;
+  }
+  td {
+    width: 30px;
+    height: 30px;
+  }
+  </style>
+</head>
+<body>
+  <div id="content">
+  </div>
+  <script>
+    const human = "Andy";
+    const computer = "PC";
+
+    var winningMap = {
+      "scissors-rock": "rock",
+      "rock-scissors": "rock",
+      "rock-paper": "paper",
+      "paper-rock": "paper",
+      "paper-scissors": "scissors",
+      "scissors-paper": "scissors"
+    }
+
+    var whoWon = function(human, computer) {
+      var result = winningMap[human+"-"+computer];
+      if (human == result){
+        return "Andy";
+      } else {
+        return "PC";
+      }
+    };
+
+    console.log(whoWon("scissors", "rock") == "PC"); // should be true
+    console.log(whoWon("rock", "scissors") == "Andy"); // should be true
+    console.log(whoWon("paper", "rock") == "Andy"); // should be true
+    console.log(whoWon("rock", "paper") == "PC"); // should be true
+    console.log(whoWon("paper", "scissors") == "PC"); // should be true
+    console.log(whoWon("scissors", "paper") == "Andy"); // should be true
+  </script>
+</body>
+</html>
