@@ -28,16 +28,16 @@
     const human = "Andy";
     const computer = "PC";
 
-    var winningMap = {
-      "scissors-rock": "rock",
-      "rock-scissors": "rock",
-      "rock-paper": "paper",
-      "paper-rock": "paper",
-      "paper-scissors": "scissors",
-      "scissors-paper": "scissors"
-    }
+    var winningMap = [];
+    winningMap["scissors-rock"] = "rock";
+    winningMap["rock-scissors"] = "rock";
+    winningMap["paper-rock"] = "paper";
+    winningMap["rock-paper"] = "paper";
+    winningMap["scissors-paper"] = "scissors";
+    winningMap["paper-scissors"] = "scissors";
 
     var whoWon = function(human, computer) {
+      console.log(human+"-"+computer);
       var result = winningMap[human+"-"+computer];
       if (human == result){
         return "Andy";
