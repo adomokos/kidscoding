@@ -19,15 +19,27 @@
     width: 30px;
     height: 30px;
   }
+  .column {
+      float: left;
+      width: 150px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
   </style>
 </head>
 <body>
-  <div id="content">
-    <img src="resources/rock.png" width="150" /><br>
-    <img src="resources/paper.png" width="150" /><br>
-    <img src="resources/scissors.png" width="150" /><br>
 
+  <div class="row">
+    <div class="column"><img src="resources/rock.png" width="150" /></div>
+    <div class="column"><img src="resources/paper.png" width="150" /></div>
+    <div class="column"><img src="resources/scissors.png" width="150" /></div>
   </div>
+
   <script>
     const human = "Andy";
     const computer = "PC";
