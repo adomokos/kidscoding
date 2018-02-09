@@ -30,14 +30,28 @@
       display: table;
       clear: both;
   }
+
+  .gallery-item
+  {
+    opacity:.3;
+  }
+
+  .gallery-item:hover
+  {
+    opacity:1;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+  }
   </style>
 </head>
 <body>
 
   <div class="row">
-    <div class="column"><img src="resources/rock.png" width="150" /></div>
-    <div class="column"><img src="resources/paper.png" width="150" /></div>
-    <div class="column"><img src="resources/scissors.png" width="150" /></div>
+    <div class="column"><img src="resources/rock.png" width="150" class="gallery-item"/></div>
+    <div class="column"><img src="resources/paper.png" width="150" class="gallery-item"/></div>
+    <div class="column"><img src="resources/scissors.png" width="150" class="gallery-item"/></div>
   </div>
 
   <script>
