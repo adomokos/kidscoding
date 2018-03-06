@@ -78,19 +78,21 @@
       }
     };
 
-    $('#rock').click(function() {
+    var calculateResult = function(userChoice) {
       var rand = myArray[Math.floor(Math.random() * myArray.length)];
-      alert("rock" + " - " + rand + " :: " + whoWon("rock", rand));
+      alert(userChoice + " - " + rand + " :: " + whoWon(userChoice, rand));
+    };
+
+    $('#rock').click(function(event) {
+      calculateResult(event.target.id);
     });
 
-    $('#paper').click(function() {
-      var rand = myArray[Math.floor(Math.random() * myArray.length)];
-      alert("paper" + " - " + rand + " :: " + whoWon("paper", rand));
+    $('#paper').click(function(event) {
+      calculateResult(event.target.id);
     });
 
-    $('#scissors').click(function() {
-      var rand = myArray[Math.floor(Math.random() * myArray.length)];
-      alert("scissors" + " - " + rand + " :: " + whoWon("scissors", rand));
+    $('#scissors').click(function(event) {
+      calculateResult(event.target.id);
     });
 
     console.log(whoWon("scissors", "rock") == "PC"); // should be true
