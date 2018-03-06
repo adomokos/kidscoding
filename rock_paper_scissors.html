@@ -49,12 +49,14 @@
 <body>
 
   <div class="row">
-    <div class="column"><img src="resources/rock.png" width="150" class="gallery-item"/></div>
-    <div class="column"><img src="resources/paper.png" width="150" class="gallery-item"/></div>
-    <div class="column"><img src="resources/scissors.png" width="150" class="gallery-item"/></div>
+    <div class="column"><img src="resources/rock.png" width="150" id="rock" class="gallery-item"/></div>
+    <div class="column"><img src="resources/paper.png" width="150" id="paper" class="gallery-item"/></div>
+    <div class="column"><img src="resources/scissors.png" width="150" id="scissors" class="gallery-item"/></div>
   </div>
 
   <script>
+    const myArray = ["rock", "paper", "scissors"];
+
     const human = "Andy";
     const computer = "PC";
 
@@ -75,6 +77,21 @@
         return "PC";
       }
     };
+
+    $('#rock').click(function() {
+      var rand = myArray[Math.floor(Math.random() * myArray.length)];
+      alert("rock" + " - " + rand + " :: " + whoWon("rock", rand));
+    });
+
+    $('#paper').click(function() {
+      var rand = myArray[Math.floor(Math.random() * myArray.length)];
+      alert("paper" + " - " + rand + " :: " + whoWon("paper", rand));
+    });
+
+    $('#scissors').click(function() {
+      var rand = myArray[Math.floor(Math.random() * myArray.length)];
+      alert("scissors" + " - " + rand + " :: " + whoWon("scissors", rand));
+    });
 
     console.log(whoWon("scissors", "rock") == "PC"); // should be true
     console.log(whoWon("rock", "scissors") == "Andy"); // should be true
