@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="3
+    crossorigin="anonymous"></script>
+  <title>Rock, Paper, Scissors</title>
+  <style>
+    img.gallery-item {
+      opacity:.3;
+    }
+
+    img.gallery-item:hover {
+      opacity:1;
+      transition: opacity .2s ease-out;
+      -moz-transition: opacity .2s ease-out;
+      -webkit-transition: opacity .2s ease-out;
+      -o-transition: opacity .2s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <img src="resources/rock.png" width="150" id="rock" class="gallery-item" />
+    <img src="resources/paper.png" width="150" id="paper" class="gallery-item" />
+    <img src="resources/scissors.png" width="150" id="scissors" class="gallery-item" />
+  </div>
+
+  <script>
+    $('#rock').click(function() {
+      alert('rock');
+    });
+
+    var whoWon = function(player, pc) {
+      if (player == "scissors" && pc == "rock") {
+        return "PC";
+      }
+
+    };
+
+                      // Player    PC
+    console.log(whoWon("scissors", "rock") == "PC"); // should be true
+    console.log(whoWon("rock", "scissors") == "Player"); // should be true
+    console.log(whoWon("paper", "rock") == "Player"); // should be true
+    console.log(whoWon("rock", "paper") == "PC"); // should be true
+    console.log(whoWon("paper", "scissors") == "PC"); // should be true
+    console.log(whoWon("scissors", "paper") == "Player"); // should be true
+  </script>
+</body>
+</html>

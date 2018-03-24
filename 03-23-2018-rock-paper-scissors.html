@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<style>
+  img.gallery-item {
+    opacity: .3;
+  }
+  img.gallery-item:hover {
+    opacity:1;
+    transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+  }
+
+  img.pc-item {
+    display: none;
+  }
+</style>
+
+</head>
+<body>
+  <div class="row">
+    <img src="resources/rock.png" width="298" id="rock" class="gallery-item"/>
+    <img src="resources/paper.png" width="298" id="paper" class="gallery-item"/>
+    <img src="resources/scissors.png" width="298" id="scissors" class="gallery-item"/>
+  </div>
+  <div id="pc-choice">
+    <img src="resources/rock.png" width="298" id="pc-rock" class="pc-item"/>
+    <img src="resources/paper.png" width="298" id="pc-paper" class="pc-item"/>
+    <img src="resources/scissors.png" width="298" id="pc-scissors" class="pc-item"/>
+  </div>
+
+  <script>
+    var winningMap = [];
+    winningMap["scissors-rock"] = "PC won";
+    winningMap["rock-scissors"] = "you won";
+    winningMap["rock-rock"] = "draw";
+    winningMap["scissors-scissors"] = "draw";
+    winningMap["paper-paper"] = "draw";
+    winningMap["paper-rock"] = "you won";
+    winningMap["rock-paper"] = "PC won";
+    winningMap["scissors-paper"] = "you won";
+    winningMap["paper-scissors"] = "PC won";
+
+    var pcPicks=['rock','paper','scissors'];
+    $('#rock').click(function() {
+      var x=Math.floor(Math.random()*3);
+      var pcPick = pcPicks[x];
+      $('#pc-' + pcPick).show();
+      $('#output').text('who won');
+      // alert('hello');
+      // alert('You picked '+'rock'+' and I picked '+pcPick+'.'+ ' The result is '+whoWon('rock',pcPick)+'!');
+    });
+    $('#paper').click(function() {
+      var x=Math.floor(Math.random()*3);
+      var pcPick = pcPicks[x];
+      alert('You picked '+'paper'+' and I picked '+pcPick+'.'+ ' The result is '+whoWon('paper',pcPick)+'!');
+    });
+    $('#scissors').click(function() {
+      var x=Math.floor(Math.random()*3);
+      var pcPick = pcPicks[x];
+      alert('You picked '+'scissors'+' and I picked '+pcPick+'.'+ ' The result is '+whoWon('scissors',pcPick)+'!');
+    });
+
+    var whoWon=function(player, pc) {
+      return winningMap[player + "-" + pc];
+    };
+
+    // console.log(whoWon("scissors", "rock") == "PC");
+  </script>
+</body>
+</html>
